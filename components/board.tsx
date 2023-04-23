@@ -5,7 +5,7 @@ export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null))
   const [isXNext, setXIsNext] = useState(true)
 
-  const winner = calculateWinner(squares)
+  const winner: boolean = calculateWinner(squares)
   let status: string
   if (winner) {
     status = `Winner: ${winner}`
@@ -27,6 +27,11 @@ export default function Board() {
     setXIsNext(!isXNext)
   }
 
+  function resetGame() {
+    setSquares(Array(9).fill(null))
+    setXIsNext(true)
+  }
+
   return (
     <>
       <div className='status'>{status}</div>
@@ -44,6 +49,9 @@ export default function Board() {
         <Square value={squares[6]} onSquareclick={() => handleClick(6)}></Square>
         <Square value={squares[7]} onSquareclick={() => handleClick(7)}></Square>
         <Square value={squares[8]} onSquareclick={() => handleClick(8)}></Square>
+      </div>
+      <div>
+        <button className='reset-game' disabled={!winner} onClick={resetGame}>RESET GAME</button>
       </div>
     </>
   )
@@ -63,8 +71,8 @@ function calculateWinner(squares: Array<string | null>) {
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i]
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a]
+      return true
     }
   }
-  return null
+  return false
 }
