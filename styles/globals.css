@@ -16,12 +16,24 @@
   }
 }
 
-body {
+/* body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+} */
+
+/** Tic-tac-toe */
+
+.square {
+  border: 1px solid black;
+  font-size: 18px;
+  font-weight: bold;
+  height: 50px;
+  width: 50px;
+}
+
+.board-row {
+  display: flex;
+  flex-direction: row;
 }
