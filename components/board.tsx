@@ -51,7 +51,7 @@ export default function Board() {
         <Square value={squares[8]} onSquareclick={() => handleClick(8)}></Square>
       </div>
       <div>
-        <button className='reset-game' disabled={!winner} onClick={resetGame}>RESET GAME</button>
+        <button className='reset-game' onClick={resetGame}>RESET GAME</button>
       </div>
     </>
   )
